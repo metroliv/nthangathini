@@ -1,0 +1,71 @@
+body{
+	dominant-baseline: all;
+    background-color: cyan;
+}
+header{
+        background-color: cyan;
+        size: 20px;
+        color: blue;
+    }
+    footer{
+        background-color: cyan;
+        color: blue;
+        size: 20px;
+    }
+    table{
+      box-shadow: 40px;
+      background-color: yellow;
+
+    }
+    button{
+       background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 200px;
+      font-size: 24px;
+      cursor: pointer;
+      display: initial;
+    }
+    
+  link{
+    float: right;
+  }
+  .box {
+            width: 400px;
+            padding: 50px;
+            border: 30px solid #ccc;
+            margin-left: 20%;
+            background-color: #f1f4f0; 
+        }
+        #game-container {
+      width: 60%;
+      margin: 100px auto;
+      background-color: #fff;
+      border-radius: 40px;
+      padding: 40px;
+      }
+
+        #div1 {
+  position: absolute;
+  left: 50px;
+  width: calc(100% - 100px);
+  border: 2px solid black;
+  background-color: springgreen;
+  padding: 5px;
+}
+  nav{
+    background-color: lightcyan;
+    height: 30px;
+    color: black;
+    padding: 10px;
+    border: 10px;
+    backface-visibility: hidden;
+  }
+  
+  h1 {
+      font-size: 30px;
+      color: #gray;
+      text-align: center;
+      margin-top: 20px;
+    }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question Answering</title>
+</head>
+<style>
+    textarea{
+        align-items: center;
+        height: 100px;
+    }
+    h1{
+        text-align: center;
+
+    }
+</style>
+<body>
+    <h1>hollo! how can I help you?</h1>
+    <button onclick="showChat()">Chat</button>
+
+        <div id="chat" style="display: none;">
+            <div id="chatWindow"></div>
+            <form onsubmit="sendMessage(event)">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button type="submit">Send</button>
+        
+    </form>
+
+    <div id="answer">
+    </div>
+
+    <script>
+        function showChat() {
+    document.getElementById("chat").style.display = "block";
+}
+    let chatMessages = []; // Array to store chat messages
+
+
+        function sendMessage(event) {
+    event.preventDefault();
+    const messageInput = document.getElementById("messageInput");
+    const message = messageInput.value.trim();
+
+    if (message !== "") {
+        chatMessages.push({ text: message, sender: "You" });
+        updateChatWindow();
+        messageInput.value = ""; // Clear input field
+    }
+}
+
+function updateChatWindow() {
+    const chatWindow = document.getElementById("chatWindow");
+    chatWindow.innerHTML = ""; // Clear the existing chat window
+
+    for (let i = 0; i < chatMessages.length; i++) {
+        const message = document.createElement("div");
+        message.textContent = `${chatMessages[i].sender}: ${chatMessages[i].text}`;
+        chatWindow.appendChild(message);
+    }
+}
+
+       
+    </script>
+</body>
+</html>

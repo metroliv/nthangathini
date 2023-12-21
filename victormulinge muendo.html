@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="phoneNumber">
+
+<head>
+  <title>VICTOR MULINGE MUENDO</title>
+  <link rel="icon" type="image/jpg" href="victor.jpg">
+  <style>
+    h1 {
+      text-align: center;
+    }
+    nav{
+      height: 65px;
+      background-color:cyan; 
+      text-align: inherit;
+      border: none;
+    }
+
+    button {
+      background-color: blue;
+      color: #ffffff;
+      height: 50px;
+      width: 150px;
+      align-content: center;
+      float: right;
+      margin-right: 10px;
+      border: 2px;
+      size: 100px;
+    }
+    #earnbutton{
+      width: 400px;
+
+    }
+    footer{
+      background-color: cyan;
+    margin-top: 17%;
+    height: 50px;
+    size: 20px;
+    text-align: center;
+    box-shadow: skyblue;
+    }
+    .box {
+      height: 340px;
+      background-color: pink;
+      border: 1px solid green;
+      padding: 10px;
+      text-align: cente;
+      
+    }
+    p{
+      text-align: center;
+      font-size: 10px;
+      text-decoration: cyna;
+      font-family: "lucima cursive;";
+    }
+
+    img {
+      width: 200px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    }
+
+    body {
+      <backface-visibility: unset;
+    }
+  </style>
+  <nav>
+<body>
+    <nav>
+      
+        <br>
+       <a href="tel:+254799553357"target="blank">
+        <button id="callButton">Call</button>
+      </a>
+        <a href="https://wa.me/+254799553357" target="_blank">
+          <button id="whatsappButton">WhatsApp</button>
+        </a>
+        <a href="http://fb.me/victor my" target="_blank">
+          <button id="fbButton">FB</button>
+
+        <a href="sms:+254799553357" target="_blank">
+          <button id="smsButton">SMS</button>
+        </a>
+        <a href="https://www.youtube.com/channel/UCttCwk1PVMASjQzp6JNr6xw" target="_blank">
+          <button id="youtubeButton">YouTube</button>
+        </a>
+        <a href="mailto:victormulinge92@gmail.com" target="_blank">
+          <button id="emailButton">Email</button>
+        </a>
+
+        <button id="infoButton">info</button>
+    </nav>
+    <img src="victor.jpg">
+      <section id="info" style="display: none;">
+      
+      <br>
+        <div class="box">
+          <u>
+            <b>
+              <main>
+        <h1>
+          I AM VCTOR MULINGE MUENDO
+        </h1>
+        </u>
+      </b>
+      
+    <p>
+      <b><ul>
+        <li>Victor, a distinguished individual with a passion for technology and programming, embodies a remarkable combination of intellect, creativity, and integrity.</li>
+          <li>His keen mind and insatiable curiosity drive him to explore the intricate world of information technology with a sense of purpose and enthusiasm.</li>
+          <li>At the core of Victor's character is his exceptional problem-solving ability.</li> 
+          <li>Whether faced with complex coding challenges or 
+      intricate IT issues, he approaches each obstacle with a methodical and analytical mindset.</li>
+      <li>His solutions are not only effective but also reflect a profound understanding of the systems he works with.</li>
+
+      <li>Victor is recognized not only for his technical prowess but also for his commitment to continuous learning.</li>
+
+      <li>In the ever-evolving landscape of technology, he remains at the forefront of innovation, staying abreast of the latest developments and trends.</li>
+
+      <li>His dedication to staying current in the fast-paced world of programming showcases his adaptability and forward-thinking mindset.</li>
+
+      <li>Beyond his technical expertise, Victor is known for his collaborative and communicative skills. </li>
+      <li>He thrives in team environments, valuing open communication and cooperation.</li>
+      <li>His ability to articulate 
+      complex technical concepts in a clear and accessible manner makes him an invaluable asset in any collaborative setting.</li>
+
+      <li>In addition to his professional achievements, Victor's integrity and ethical approach to his work set him apart.</li>
+      <li>He operates with a strong moral compass, ensuring that his programming and IT solutions are not only efficient but also ethically sound.</li>
+      <li>His commitment to maintaining the highest standards of professionalism contributes to a positive and inclusive work environment.</li>
+
+      <li>Victor's multifaceted skill set, encompassing both technical mastery and interpersonal finesse, positions him as a standout 
+      programmer and IT expert.</li>
+      <li>Whether crafting elegant lines of code or providing strategic IT guidance, Victor is a beacon of 
+      excellence in the ever-expanding realm of technology.</li></ul>
+    </p>
+    </b>
+  </div>
+  <a href="number guess.html" target="_blank">
+  <button id="earnbutton">click to start earning mony</button>
+</a>
+
+  </main>
+</section>
+<big>
+  <footer>
+    <a href="">contact us</a>
+    <a href="">help</a>
+    <a href="">about us
+  </footer>
+</big>
+
+  <script>
+    function showSection(sectionId) {
+      var sections = document.querySelectorAll('section');
+      sections.forEach(function (section) {
+        section.style.display = 'none';
+      });
+
+      document.getElementById(sectionId).style.display = 'block';
+
+      // Check if the clicked button is the "callButton" and initiate a phone call
+      if (sectionId === 'call') {
+        window.location.href = 'tel:+254799553357';
+      }
+    }
+
+    document.getElementById("infoButton").addEventListener("click", function () {
+      showSection("info");
+    });
+
+    document.getElementById("whatsappButton").addEventListener("click", function () {
+      showSection("whatsapp");
+    });
+
+    document.getElementById("callButton").addEventListener("click", function () {
+      showSection("call");
+    });
+
+    document.getElementById("emailButton").addEventListener("click", function () {
+      showSection("email");
+    });
+
+    document.getElementById("smsButton").addEventListener("click", function () {
+      showSection("sms");
+    });
+
+    document.getElementById("youtubeButton").addEventListener("click", function () {
+      showSection("youtube");
+    });
+
+  </script>
+</head>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>VICTOR MULINGE MUENDO</title>
+  <link rel="icon" type="image/jpg" href="victor.jpg">
+  <style>
+    body {
+      background-color: whitesmoke;
+    }
+    video {
+      width: 200px;
+      height: 200px;
+    }
+    button {
+      background-color: blue;
+      color: #ffffff;
+      height: 30px;
+      width: 100px;
+      align-content: center;
+      float: right;
+      margin-right: 8px;
+      border: 2px;
+      border-radius: 10px;
+    }
+    img {
+      width: 200px;
+      height: 100px;
+    }
+    link{
+      text-align: center;
+      text-shadow: beige;
+    }
+    nav {
+      height: 70px;
+      background-color: cyan;
+    }
+    #game-container {
+      width: 100%;
+      height: 400px;
+      background-color: #a0a0a0;
+      position: relative;
+      overflow: hidden;
+    }
+   
+  </style>
+</head>
+<body>
+  <nav>
+    <br>
+    <button id="imgButton">img</button>
+    <button id="videoButton">video</button>
+    <button id="homeButton">home</button>
+  </nav>
+  <section id="video" style="display:none">
+    <br>
+    <video controls="mute audio volume camera share loop edit download ">
+      <source src="MV/COSTLY.mp4"> 
+    </video>
+    <video controls="mute audio volume camera share loop">
+      <source src="MV/THIS_SHOCKING_EPIC_MOVIE.mp4"> 
+    </video>
+    <video controls="mute audio volume camera share loop">
+      <source src="MV/Tears_Of_Betrayal.mp4"> 
+    </video>
+    <video controls="mute audio volume camera share loop">
+      <source src="MV/SISTERS_IN_MARRIAGE_-_Ken_Erics__Chizzy_Alichi__Oge_Okoye__New_Nigerian_Nollywood_Movie_2019(360p).MP4"> 
+    </video>
+    <video controls="mute audio volume camera share loop">
+      <source src="MV/DECEITFUL_ROMANCE_(NEW_MAJID_MICHEL_LATEST_BEST_2021_ROMANTIC_LOVE_MOVIE)_-2021_FULL_NIGERIAN_MOVIES(720p).mp4"> 
+    </video>
+    <video controls="mute audio volume camera share loop">
+      <source src="MV/FLIP_OF_ROMANCE(_LATEST_MOVIE_OF_BOLAJI_OGUMOLA)_2021_NIGERIA_NOLLYWOOD_LOVE_MOVIES(360p).mp4"> 
+    </video>
+    <video controls="mute audio volume camera share loop">
+      <source src="MV/Hii_Sio_Ndoto_Yangu__William_Yilima(Tz)_ministering_at_Bahati_Church(360p).mp4"> 
+    </video>
+    <video controls="mute audio volume camera share loop">
+      <source src="MV/LOVE_CAN_ONLY_HEAL_(NEW)RAY_EMODI_2021_LATEST_NIGERIAN_MOVIE-2021_NIGERIAN_MOVIE(360p).mp4"> 
+    </video>
+    <video controls="mute audio volume camera share loop ">
+      <source src="MV/NOT_ALL_THAT_GLITTERS__NEW_NINO_BOLANLE_ROMANTIC_AFFAIR__2021_LATEST_NIGERIAN_MOVIE(360p).mp4"> 
+    </video>
+    <audio>
+      <source src="2017_seventh_Day_Adventist_songs_collection_combined_By_Top_Sda_Choirs_East_Africa.mp3">
+    </audio>
+  </section>
+  <div id="game-container" style="display:none">
+    <div id="info"></div>
+    <a href="https://gamaverse.com/real-cars-in-city-game/" target="_blank">let's play this game</a>
+  </div>
+  <img src="money.jpg">
+  <script>
+    function showSection(sectionId) {
+      var sections = document.querySelectorAll('section, #game-container');
+      sections.forEach(function(section) {
+        section.style.display = 'none';
+      });
+
+      // Show the selected section
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    document.getElementById("videoButton").addEventListener("click", function () {
+      showSection("video");
+    });
+
+    document.getElementById("homeButton").addEventListener("click", function () {
+      showSection("game-container");
+    });
+    document.getElementById("imgbutton").addEventListener("click",function(){
+      showsection("img")
+    });
+  </script>
+</body>
+</html>

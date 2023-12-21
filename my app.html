@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Church App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image" href="captSDAure.PNG">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="div1">
+                <big>
+            <a href="java victor.html" target="_blank">help</a>
+            <a href="tel:+254799553357">contact us</a>
+            <a href="victormulinge muendo.html">abiut us</a>
+            </big>
+            </div>
+        </nav>       
+         
+              <div id="game-container">
+                <button><a href="#" onclick="showHome()">Home</a></button>
+                <button><a href="#" onclick="showEvents()">Events</a></button>
+                <button><a href="#" onclick="showMembers()">Members</a>
+                 </div>
+           
+            
+        
+    </header>
+
+
+    <main>
+    <div id="home">
+        <h1>Welcome to Your Church App</h1>
+
+        <!-- Add more content for the home page if needed -->
+        <form>
+        <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48">
+       </form>
+       
+    </div>
+
+    <div id="events" style="display: none;">
+        <h1>Events</h1>
+        
+        <button onclick="showAddEventForm()">Add Event</button>
+        <button onclick="showUploadForm()">Upload Files</button>
+        <button onclick="showChat()">Chat</button>
+        <button onclick="showViewevent()">view event</button>
+       
+
+        <div id="addEventForm" style="display: none;">
+     
+            <div class="box">
+            <form>
+            <label for="title">Title</label>
+            <input type="title" id="title">
+            <br>
+            <br> 
+            <label>            
+            <a href="am tying it.html">Date</a>
+    </label>
+            <br>
+            <br>
+            <labe for="chackbox">Approve</labe>
+            <input type="checkbox" id="chackbox">
+            <br>
+            <br>
+            <labe for="comment">Desciption</labe>
+            <textarea id="comment" rows="3" cols="50"></textarea>
+            </form>
+            <input type="submit">
+            <br>
+             </div>
+
+            <!-- Add event form content here -->
+        </div>
+
+        <div id="uploadForm" style="display: none;">
+            <h2>File Upload</h2>
+            <form id="fileUploadForm" enctype="multipart/form-data">
+                <input type="file" id="fileInput" accept="txt/mp3/wbp/image/*"> <!-- You can adjust the 'accept' attribute based on the file types you want to allow -->
+
+            </form>
+        </div>
+
+        <div id="chat" style="display: none;">
+            <h2>Chat</h2>
+            <div id="chatWindow"></div>
+            <form onsubmit="sendMessage(event)">
+                <input name="text" type="text" id="messageInput" placeholder="Type a message...">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="members" style="display: none;">
+        <h1>Members</h1>
+        <button onclick="showMembership()">Membership</button>
+        <button onclick="showYouth()">Youth</button>
+        <button onclick="showWomen()">Women</button>
+        <button onclick="showMen()">Men</button>
+        <button onclick="showChildren()">Children</button>
+
+        <div id="membership" style="display: none;">
+            <h2>Membership</h2>
+            <button onclick="showAddMemberForm()">Add Member</button>
+            <ul id="memberList"></ul>
+
+            <div id="addMemberForm" style="display: none;">
+                <!-- Add member form content here -->
+                <label for="memberName">Member Name:</label>
+                <input type="text" id="memberName">
+                <button onclick="addMember()">Add Member</button>
+                <div id="adminControls" style="display: none;"></div>
+            </div>
+        </div>
+              <div id="youth" style="display: none;">
+            <h2>Youth</h2>
+            <button onclick="showAddMemberForm('youth')">Add Member</button>
+            <ul id="memberListYouth"></ul>
+
+            <div id="addMemberFormYouth" style="display: none;">
+                <!-- Add member form content here -->
+                <label for="memberNameYouth">Member Name:</label>
+                <input type="text" id="memberNameYouth">
+                <button onclick="addMember('youth')">Add Member</button>
+            </div>
+        </div>
+
+        <div id="women" style="display: none;">
+            <h2>Women</h2>
+            <button onclick="showAddMemberForm('women')">Add Member</button>
+            <ul id="memberListWomen"></ul>
+
+            <div id="addMemberFormWomen" style="display: none;">
+                <!-- Add member form content here -->
+                <label for="memberNameWomen">Member Name:</label>
+                <input type="text" id="memberNameWomen">
+                <button onclick="addMember('women')">Add Member</button>
+            </div>
+        </div>
+
+        <div id="men" style="display: none;">
+            <h2>Men</h2>
+            <button onclick="showAddMemberForm('men')">Add Member</button>
+            <ul id="memberListMen"></ul>
+
+            <div id="addMemberFormMen" style="display: none;">
+                <!-- Add member form content here -->
+                <label for="memberNameMen">Member Name:</label>
+                <input type="text" id="memberNameMen">
+                <button onclick="addMember('men')">Add Member</button>
+            </div>
+        </div>
+
+        <div id="children" style="display: none;">
+            <h2>Children</h2>
+            <button onclick="showAddMemberForm('children')">Add Member</button>
+            <ul id="memberListChildren"></ul>
+
+            <div id="addMemberFormChildren" style="display: none;">
+                <!-- Add member form content here -->
+                <label for="memberNameChildren">Member Name:</label>
+                <input type="text" id="memberNameChildren">
+                <button onclick="addMember('children')">Add Member</button>
+                </main>                
+            </div>
+        </div>
+    </div>
+
+
+    <script src="nthangathini.js"></script>
+</body>
+</html>

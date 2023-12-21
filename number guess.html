@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Guess the Number Game</title>
+  <style>
+    body {
+      background-color: #f7cac9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 30px;
+      color: #fff;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #game-container {
+      width: 100%;
+      margin: 100px auto;
+      background-color: #fff;
+      border-radius: 40px;
+      padding: 40px;
+    }
+
+    #form-container {
+      display: none;
+    }
+
+    form {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+      max-width: 500px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 10px;
+      font-size: 24px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 200px;
+      font-size: 24px;
+      cursor: pointer;
+      display: initial;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 7%;
+      height: 10;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+      text-align: center;
+    }
+
+    #congratulations-container {
+      display: none;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #congratulations-message {
+      font-size: 16px;
+      color: #fff;
+      background-color: #4caf50;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    #prize-image {
+      display: block;
+      margin: 0 auto;
+      max-width: 20%;
+    }
+
+    #correct-number-container {
+      display: none;
+      text-align: center;
+    }
+
+    #correct-number-message {
+      font-size: 14px;
+      color: #ff0000;
+      margin-bottom: 10px;
+    }
+
+    #prize-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    #back-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #congratulation-page {
+      display: none;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #congratulation-text {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #click-me-button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Guess the Number Game</h1>
+  <div id="game-container">
+    <form id="gameForm" onsubmit="return false;">
+      <label for="guessInput">Guess:</label>
+      <input type="text" id="guessInput" name="guessInput">
+      <input type="submit" value="Submit" onclick="guessNumber()">
+    </form>
+    <div id="result"></div>
+    <div id="prize"></div>
+    <div id="correctNumber"></div>
+    <div id="formDetails" style="display:none">
+      <form id="detailsForm" onsubmit="return false;">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" placeholder="Name" name="nameInput" required>
+        <label for="idInput">Email:</label>
+        <input type="email" id="idInput" placeholder="email@example.com" name="idInput" required>
+        <label for="phoneInput">Phone Number:</label>
+        <input type="text" id="phoneInput" placeholder="+07********" name="phoneInput" required>
+        <label for="passwordInput">Password:</label>
+        <input type="password" id="passwordInput" placeholder="Password" name="passwordInput" minlength="6" required>
+        <input type="submit" value="Claim Prize" onclick="claimPrize()">
+      </form>
+    </div>
+  </div>
+
+  <div id="congratulations-container">
+    <div id="congratulations-message">
+      <p>Congratulations! You guessed the correct number!</p>
+      <img src='https://www.example.com/money.jpg' id="prize-image">
+      <div id="prize-form">
+        <form id="detailsForm" onsubmit="return false;">
+          <label for="nameInput">Name:</label>
+          <input type="text" id="nameInput" placeholder="Name" name="nameInput" required>
+          <label for="idInput">Email:</label>
+          <input type="email" id="idInput" placeholder="email@example.com" name="idInput" required>
+          <label for="phoneInput">Phone Number:</label>
+          <input type="text" id="phoneInput" placeholder="+07********" name="phoneInput" required>
+          <label for="passwordInput">Password:</label>
+          <input type="password" id="passwordInput" placeholder="Password" name="passwordInput" minlength="6" required>
+          <input type="submit" value="Claim Prize" onclick="claimPrize()">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="congratulation-page">
+    <div id="congratulation-text">Congratulations for your winning! Now click below to keep winning.</div>
+    <button id="click-me-button" onclick="backToGuessingPlatform()">Click Me</button>
+  </div>
+
+  <button id="back-button" onclick="backToGuessingPlatform()">Back</button>
+
+  <script>
+    let prizeMoney = 0;
+
+    function guessNumber() {
+      let guess = document.getElementById("guessInput").value;
+      let randomNumber = Math.floor(Math.random() * 5) + 1;
+
+      if (guess == randomNumber & guess != undefined) {
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("prize").innerHTML = "";
+        document.getElementById("correctNumber").innerHTML = "";
+        document.getElementById("formDetails").style.display = "none";
+        document.getElementById("congratulations-container").style.display = "block";
+        document.getElementById("back-button").style.display = "block";
+      } else {
+        document.getElementById("result").innerHTML = alert("Sorry, that is incorrect. The correct number was " + randomNumber);
+        document.getElementById("prize").innerHTML = "";
+        document.getElementById("correctNumber").innerHTML = alert("Better luck next time! The correct number was " + randomNumber);
+        document.getElementById("formDetails").style.display = "none";
+      }
+    }
+
+    function claimPrize() {
+      let name = document.getElementById("nameInput").value;
+      let id = document.getElementById("idInput").value;
+      let phone = document.getElementById("phoneInput").value;
+      alert("Congratulations " + name + "! You have won ksh" + prizeMoney + ". Please follow this link to claim your prize: https://1635615.playcode.io/" + id + "&phone=" + phone);
+
+      // Additional logic for the congratulation page
+      document.getElementById("congratulation-page").style.display = "block";
+      document.getElementById("back-button").style.display = "none";
+      document.getElementById("game-container").style.display = "none";
+    }
+
+    function backToGuessingPlatform() {
+      document.getElementById("congratulations-container").style.display = "none";
+      document.getElementById("game-container").style.display = "block";
+      document.getElementById("back-button").style.display = "none";
+      document.getElementById("congratulation-page").style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

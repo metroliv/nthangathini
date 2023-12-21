@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Greeting</title>
+    <script src="https://threejs.org/build/three.js"></script>
+</head>
+<style>
+    body{
+        background-color: cyan;
+
+    }
+    table{
+        text-align: center;
+        
+        text-indent: initial;
+        border-radius: 20px;
+        font-size: 40px;
+        margin-left: 30%;
+    }
+    .tr{
+        color: blueviolet;
+    }
+    h1{
+        text-align: center;
+        color: gray;
+        size: b4;
+    }
+    link{
+        margin: auto;
+    }
+    span{
+        text-align: center;
+        color: gray;
+
+    }
+    input{
+        align-items: center;
+    }
+    .center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 200px;
+      font-size: 24px;
+      cursor: pointer;
+      display: initial;
+    }
+
+</style>
+<body>
+
+        <br>
+        <h1 id="good">From Victor </h1>
+        
+        <button><a href="my app.html">back</a></button>
+        <ul>
+        <hr>
+         <br>
+         <div class="center">
+
+         <label for="date" >enter date</label> <br>
+         <input type="datetime-local" name="date" id="date">
+         
+         <big><p id="datedtime"></p></big>
+         <button onclick="showSubmit()">submit</button>
+         </div>
+
+         <div id="submit" style="display:none;">
+                       
+            <h1 id="dayof">Tusday</h1>
+             <table cellpadding="20px">
+                <tr class="tr">
+                    <td>days</td> <td>hours</td> <td>mins</td> <td>secs</td>
+                </tr>
+                <tr>
+                <td id="days">0</td><td id="hours">12</td> <td id="mins">44</td> <td id="secs">29</td>
+            </tr>
+         </table>
+         </div>
+  <script src="countdown.js"></script> 
+</body>
+</html>
