@@ -1,15 +1,15 @@
 body {
-  dominnt-baseline: all;
+  dominant-baseline: all;
   background-color: rgb(7, 224, 224);
- 
-  background-image: rgb(47, 238, 238),yellow;
   background-image: url(bible1.jpeg), url(bible2.jpeg), url(bible3.jpeg);
+  background-image: rgb(47, 238, 238), yellow;
   background-position: right bottom, left top;
   background-repeat: no-repeat, repeat;
   padding: 15px;
 }
-.memberList{
-margin: auto;
+
+.memberList {
+  margin: auto;
 }
 
 header {
@@ -19,13 +19,14 @@ header {
 }
 
 footer {
- background-color: cyan;
+  background-color: cyan;
   color: blue;
   font-size: 30px;
-  margin-top: 100%;
+  margin-top: 30%;
   height: 40px;
   margin-right: auto;
 }
+
 span {
   margin: auto;
   float: right;
@@ -35,7 +36,6 @@ table {
   box-shadow: 40px;
   background-color: whitesmoke;
   border: 2px;
-  bor
 }
 
 button {
@@ -73,18 +73,21 @@ link {
   padding: 20px;
   text-align: center;
 }
-#message-form-inner{
+
+#message-form-inner {
   align-content: center;
 }
 
-img{
+img {
   height: 70px;
   border-radius: 50px;
 }
-#members{
+
+#members {
   background-image: url(book.jpeg);
   align-content: center;
 }
+
 #div1 {
   position: absolute;
   left: 5%;
@@ -94,7 +97,8 @@ img{
   padding: 5px;
   display: inline;
 }
-table{
+
+table {
   border: solid;
 }
 
@@ -116,26 +120,22 @@ h1 {
 
 /* Media query for smaller screens */
 @media screen and (max-width: 600px) {
-  .box {
+  .box,
+  #game-container,
+  .span1 {
     width: 90%;
     max-width: none;
+    margin: 0 auto;
   }
 
-  #game-container {
-    width: 90%;
-    max-width: none;
+  center {
+    text-align: center;
+    background-color: ghostwhite;
   }
- center{
-  text-align: center;
-  background-color: ghostwhite;
- }
- .span1{
-  float: right;position: absolute;
-  left: 5%;
-  width: 90%;
-  border: 2px solid black;
-  background-color: springgreen;
-  padding: 5px;
-  display: inline;
 
- }
+  .span1 {
+    float: none;
+    position: relative;
+    left: auto;
+  }
+}
