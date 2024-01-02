@@ -19,10 +19,12 @@ header {
 }
 
 footer {
-  background-color: cyan;
-  color: green;
+ background-color: cyan;
+  color: blue;
   font-size: 30px;
-  margin-top: 350px;
+  margin-top: 30%;
+  height: 40px;
+  margin-right: auto;
 }
 span {
   margin: auto;
