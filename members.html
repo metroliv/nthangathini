@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Church App</title>
+    
+    <link rel="icon" type="image" href="captSDAure.PNG">
+    <style>
+        
+       body {
+    background-color: cyan;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+img {
+    height: 80px;
+    border-radius: 50%;
+    width: 80px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+button {
+    background-color: cyan;
+    float: right;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box {
+    background-color: whitesmoke;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.addMemberBtn,
+.nextMemberBtn,
+.backBtn {
+    margin: 10px;
+    padding: 10px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#membersContainer {
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .box {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .box {
+        width: 50%;
+    }
+}
+
+    
+    </style>
+</head>
+<body><br><br>
+    <h1>View Members</h1>
+    <button id="allMembersBtn"><img src="members.jpeg" alt="all members"></button><br>
+    All Members
+    <div id="membersContainer"> 
+        <div class="box" id="memberTemplate">
+            <big>
+                <label id="firstname">First Name:</label><br>
+                <input type="text" name="firstname" required>
+                <br>
+                <label id="secondname">Middle Name:</label><br>
+                <input type="text" name="middlename" required>
+                <br>
+                <label id="sirname">Sir Name:</label><br>
+                <input type="text" name="lastname" required>
+                <br>
+                <label for="phone">Phone Number:</label>
+                <br>
+                <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <br>
+                <label id="tite"></label>
+                <input type="radio" name="gender" value="male" required> Male
+                <label>
+                    <input type="radio" name="gender" value="female" required> Female
+                </label>
+                <br><br>
+                <button type="button" onclick="collectMemberDetails()" class="addMemberBtn" >Add Member</button>
+                
+            </big>
+        </div>
+    </div>
+
+    <script>
+        let memberDetails = [];
+        let currentMemberIndex = 0;
+
+        document.getElementById("allMembersBtn").addEventListener("click", function() {
+            displayMembers();
+        });
+
+        function collectMemberDetails() {
+            var memberForm = document.getElementById("memberTemplate").cloneNode(true);
+            var member = {
+                firstname: memberForm.querySelector('input[name="firstname"]').value,
+                middlename: memberForm.querySelector('input[name="middlename"]').value,
+                lastname: memberForm.querySelector('input[name="lastname"]').value,
+                phone: memberForm.querySelector('input[name="phone"]').value,
+                gender: memberForm.querySelector('input[name="gender"]:checked').value
+            };
+            memberDetails.push(member);
+            clearForm();
+        }
+
+        function clearForm() {
+            var memberForm = document.getElementById("memberTemplate").cloneNode(true);
+            memberForm.querySelectorAll('input').forEach(input => input.value = '');
+            memberForm.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            document.getElementById('membersContainer').innerHTML = '';
+            document.getElementById('membersContainer').appendChild(memberForm);
+            addBackButton();
+            alert("member added");
+        }
+
+        function displayMembers() {
+            var container = document.getElementById('membersContainer');
+            container.innerHTML = ""; // Clear previous content
+            for (var i = 0; i < memberDetails.length; i++) {
+                var memberBtn = document.createElement('button');
+                memberBtn.innerHTML = memberDetails[i].firstname + " " + memberDetails[i].lastname;
+                memberBtn.addEventListener('click', function() {
+                    displayMemberDetails(this.innerHTML);
+                });
+                container.appendChild(memberBtn);
+            }
+            addBackButton();
+        }
+
+        function displayMemberDetails(memberName) {
+            var container = document.getElementById('membersContainer');
+            container.innerHTML = ""; // Clear previous content
+            var memberIndex = memberDetails.findIndex(member => (member.firstname + " " + member.lastname) === memberName);
+            if (memberIndex !== -1) {
+                var member = memberDetails[memberIndex];
+                var detailsDiv = document.createElement('div');
+                detailsDiv.innerHTML = `
+                    <h2>${member.firstname} ${member.lastname}</h2>
+                    <p>Middle Name: ${member.middlename}</p>
+                    <p>Phone Number: ${member.phone}</p>
+                    <p>Gender: ${member.gender}</p>
+                `;
+                container.appendChild(detailsDiv);
+            }
+            addBackButton();
+        }
+
+       function addBackButton(callback) {
+    var backButton = document.createElement('button');
+    backButton.innerHTML = 'Back';
+    backButton.className = 'backBtn';
+    backButton.addEventListener('click', function() {
+        if (callback) {
+            callback();
+        }
+    });
+    document.getElementById('membersContainer').appendChild(backButton);
+}
+
+
+
+    </script>
+</body>
+</html>

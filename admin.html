@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: cyan;
+        }
+        #img{
+            border-radius: 50px;
+            display: inline;
+            background-color: cyan;
+            border: 0px;
+
+
+        }
+
+        .box {
+            align-content: center;
+            background-color: whitesmoke;
+            width: 400px;
+            height: 300px;
+            margin: auto;
+            shape-outside: circle(50%);
+            color: blue;
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            width: 30%;
+        }
+        footer{
+            margin-top: 60px;
+        }
+        img{
+            
+            width: 50px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div id="loginForm">
+        <h2>Login as Admin</h2>
+        <hr>
+        <form onsubmit="login(event)"><br>
+            <label for="adminUsername">Username (Phone Number or Email)</label><br>
+            <input type="text" id="adminUsername" name="adminUsername" placeholder="Enter phone number or email"
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$|^\d{10}$"
+                   title="Enter a valid email address or 10-digit phone number" required>
+            <br>
+            <label for="adminPassword">Password</label><br>
+            <input type="password" id="adminPassword" name="adminPassword" required maxlength="20" minlength="12">
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="verificationForm" style="display: none;">
+        <h2>Verification Code</h2>
+        <form onsubmit="verifyCode(event)">
+            <label for="verificationCode">Enter the code sent to your phone or email</label>
+            <input type="text" id="verificationCode" name="verificationCode" required>
+            <br>
+            <button type="submit">Verify</button>
+        </form>
+    </div>
+
+    <div id="addMemberForm" style="display: none;">
+        <h2>Congratulations, [Username]! 🎉 Welcome back! Your login was successful. We're delighted to have you here. Feel free to explore and continue your journey with us. If you have any questions or need assistance, we're just a message away. Happy navigating!
+            <a href="members.html">continue</a>
+</h2>
+        
+    </div>
+    </div>
+    <footer>
+     <button id="img" onclick="text()"><img src="sms.PNG" id="img"></button>
+    
+       <section id="infos" style="display:none;">
+          <p>welcome to</p>
+          <br>
+          <textarea rows="6" cols="50" ></textarea> 
+          <input type="submit" name="Submit">
+       </section>
+    </footer>
+
+<script>
+    let isAdminLoggedIn = false;
+    let verificationCodeSent = false;
+
+    function login(event) {
+        event.preventDefault();
+        const adminUsername = document.getElementById("adminUsername").value;
+        const adminPassword = document.getElementById("adminPassword").value;
+
+        if (isValidUsername(adminUsername)) {
+            sendVerificationCode(adminUsername);
+            showVerificationForm();
+        } else {
+            alert("Invalid username. Please enter a valid email address or phone number.");
+        }
+    }
+
+    function isValidUsername(username) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$|^\d{10}$/.test(username);
+    }
+
+    function sendVerificationCode(username) {
+        const verificationCode = "123456";
+        console.log(`Sending verification code ${verificationCode} to ${username}`);
+        verificationCodeSent = true;
+    }
+
+    function showVerificationForm() {
+        hideLoginForm();
+        document.getElementById("verificationForm").style.display = "block";
+    }
+
+    function verifyCode(event) {
+        event.preventDefault();
+        const verificationCode = document.getElementById("verificationCode").value;
+
+        if (isValidVerificationCode(verificationCode)) {
+            isAdminLoggedIn = true;
+            hideVerificationForm();
+            showAddMemberForm();
+        } else {
+            alert("Invalid verification code. Please try again.");
+        }
+    }
+
+    function isValidVerificationCode(code) {
+        console.log(`Verifying code: ${code}`);
+        return verificationCodeSent && code === "123456";
+    }
+
+    function hideLoginForm() {
+        document.getElementById("loginForm").style.display = "none";
+    }
+
+    function hideVerificationForm() {
+        document.getElementById("verificationForm").style.display = "none";
+
+    }
+
+    function showAddMemberForm() {
+        hideVerificationForm();
+        document.getElementById("addMemberForm").style.display = "block";
+        alert("you are now logged in as admin, add members or remove a member.");
+    }
+    
+
+    function text(){
+        document.getElementById("infos").style.display= "block";
+        document.getElementById("img").style.display= "none";
+    }
+</script>
+
+</body>
+</html>
