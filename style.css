@@ -52,7 +52,7 @@ link {
 
 .box {
   width: 90%; /* Adjusted width for smaller screens */
-  max-width: 400px; /* Added max-width to ensure responsiveness */
+  max-width: 300px; /* Added max-width to ensure responsiveness */
   padding: 20px;
   border: 15px solid #ccc;
   margin: 0 auto; /* Center the box */
