@@ -49,8 +49,8 @@ link {
   padding: 4px;
   background-attachment: 20px;
 }
-
-.box {
+@media screen and (max-width: 600px) {
+.box,
   width: 90%; /* Adjusted width for smaller screens */
   max-width: 300px; /* Added max-width to ensure responsiveness */
   padding: 20px;
