@@ -1,7 +1,7 @@
 body {
   dominnt-baseline: all;
   background-color: rgb(7, 224, 224);
-  background-image: url(bible1.jpeg), url(bible2.jpeg), url(bible3.jpeg);
+ 
   background-image: rgb(47, 238, 238),yellow;
   background-position: right bottom, left top;
   background-repeat: no-repeat, repeat;
@@ -20,9 +20,9 @@ header {
 footer {
   background-color: cyan;
   color: blue;
-  font-size: 20px;
+  font-size: 30px;
+  margin-top: 50%;
 }
-
 span {
   margin: auto;
   float: right;
