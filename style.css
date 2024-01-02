@@ -3,6 +3,7 @@ body {
   background-color: rgb(7, 224, 224);
  
   background-image: rgb(47, 238, 238),yellow;
+  background-image: url(bible1.jpeg), url(bible2.jpeg), url(bible3.jpeg);
   background-position: right bottom, left top;
   background-repeat: no-repeat, repeat;
   padding: 15px;
