@@ -16,97 +16,98 @@ header {
   background-color: cyan;
   font-size: 20px;
   color: blue;
+  text-align: center; /* Center text */
 }
 
 footer {
   background-color: cyan;
   color: blue;
-  font-size: 30px;
-  margin-top: 30%;
-  height: 40px;
-  margin: auto;
+  font-size: 20px; /* Adjusted font size */
+  padding: 15px;
+  text-align: center; /* Center text */
 }
 
 table {
-  box-shadow: 40px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* Adjusted box-shadow */
   background-color: whitesmoke;
-  border: 2px;
+  border-collapse: collapse; /* Collapsed borders for better styling */
+  width: 100%; /* Full width for responsiveness */
 }
 
 button {
   background-color: #4caf50;
   color: white;
-  padding: 7px;
+  padding: 10px 20px; /* Adjusted padding */
   border: none;
-  border-radius: 200px;
-  font-size: 24px;
+  border-radius: 10px; /* Smaller border radius */
+  font-size: 18px; /* Adjusted font size */
   cursor: pointer;
-  display: initial;
+  display: block; /* Make button a block element */
+  margin: 10px auto; /* Center the button */
 }
 
-link {
+.link {
   float: right;
   padding: 4px;
   background-attachment: 20px;
 }
-@media screen and (max-width: 600px) {
-.box,
-  width: 90%; /* Adjusted width for smaller screens */
-  max-width: 300px; /* Added max-width to ensure responsiveness */
+
+.box {
+  width: 100%;
+  max-width: 300px;
   padding: 20px;
-  border: 15px solid #ccc;
-  margin: 0 auto; /* Center the box */
+  border: 10px solid #ccc;
+  margin: 0 auto;
   background-color: #f1f4f0;
 }
 
 #game-container {
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   margin: 7px auto;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
 }
 
 #message-form-inner {
-  align-content: center;
+  text-align: center; /* Center text */
 }
 
 img {
-  height: 70px;
+  max-width: 100%; /* Ensure images are responsive */
+  height: auto;
   border-radius: 50px;
 }
 
 #members {
-  align-content: center;
+  text-align: center; /* Center text */
 }
 
 #div1 {
-  position: absolute;
-  left: 5%;
-  width: 90%;
+  position: relative; /* Relative positioning */
+  width: 100%;
   border: 2px solid black;
   background-color: springgreen;
   padding: 5px;
-  display: inline;
+  display: block; /* Make it a block element */
 }
 
 table {
-  border: solid;
+  border: 2px solid; /* Adjusted border */
 }
 
 nav {
   background-color: lightcyan;
-  height: 30px;
   color: black;
   padding: 10px;
-  border: 10px;
+  border: 10px solid transparent; /* Adjusted border */
   backface-visibility: hidden;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 20px; /* Adjusted font size */
   color: lightcyan;
   text-align: center;
   margin-top: 20px;
@@ -114,23 +115,16 @@ h1 {
 
 /* Media query for smaller screens */
 @media screen and (max-width: 600px) {
-  .box,
-  #game-container,
-  .span1 {
-    width: 100%; /* Adjusted width for smaller screens */
-    max-width: none;
-    margin: 0;
+  header,
+  footer {
+    font-size: 18px; /* Adjusted font size */
   }
 
-  center {
-    text-align: center;
-    background-color: ghostwhite;
+  table {
+    box-shadow: none; /* Remove box-shadow for smaller screens */
   }
 
-  .span1 {
-    float: none;
-    position: relative;
-    left: auto;
-    width: 100%;
+  button {
+    font-size: 16px; /* Adjusted font size */
   }
 }
