@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Details</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightgray;
+            padding: 50px;
+        }
+        h1 {
+            color: blue;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #4caf50;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        #memberList {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .memberItem {
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        .selected {
+            background-color: #f0f0f0;
+        }
+        #deleteButton {
+            background-color: #ff5252;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #searchInput {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        #searchButton {
+            background-color: #2196f3;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Member Details</h1>
+
+    <div id="searchContainer">
+        <label for="searchInput">Search Member:</label><br>
+        <input type="text" id="searchInput" name="searchInput" placeholder="Enter name" required>
+        <button id="searchButton" onclick="searchMember()">Search</button>
+    </div>
+
+    <div id="memberList"></div>
+
+    <button id="deleteButton" onclick="deleteMember()">Delete Member</button>
+
+    <a href="index.html" style="display_blank">Back to Home</a>
+
+    <script>
+        // Retrieve the stored members from local storage
+        var storedMembers = JSON.parse(localStorage.getItem('members')) || [];
+
+        function updateMemberList() {
+            var memberListContainer = document.getElementById('memberList');
+            memberListContainer.innerHTML = '';
+
+            storedMembers.forEach(function (member, index) {
+                var memberItem = document.createElement('div');
+                memberItem.className = 'memberItem';
+                memberItem.textContent = 'Member ' + (index + 1) + ': ' + member.firstName + ' ' + member.lastName;
+                memberItem.onclick = function () {
+                    showMemberDetails(index);
+                };
+
+                memberListContainer.appendChild(memberItem);
+            });
+        }
+
+        function showMemberDetails(index) {
+            var memberItem = document.getElementsByClassName('memberItem')[index];
+            memberItem.classList.toggle('selected');
+        }
+
+        function deleteMember() {
+            var selectedMembers = getSelectedMembers();
+            
+            if (selectedMembers.length > 0) {
+                var reversedSelection = selectedMembers.sort().reverse(); // Reverse to avoid index issues
+                reversedSelection.forEach(function (index) {
+                    storedMembers.splice(index, 1);
+                });
+
+                localStorage.setItem('members', JSON.stringify(storedMembers));
+                updateMemberList();
+                clearSelection();
+            } else {
+                alert('Please select a member to delete.');
+            }
+        }
+
+        function getSelectedMembers() {
+            var memberItems = document.getElementsByClassName('memberItem');
+            var selectedMembers = [];
+
+            for (var i = 0; i < memberItems.length; i++) {
+                if (memberItems[i].classList.contains('selected')) {
+                    selectedMembers.push(i);
+                }
+            }
+
+            return selectedMembers;
+        }
+
+        function clearSelection() {
+            var memberItems = document.getElementsByClassName('memberItem');
+            for (var i = 0; i < memberItems.length; i++) {
+                memberItems[i].classList.remove('selected');
+            }
+        }
+
+        function searchMember() {
+            var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (searchTerm.trim() === '') {
+                alert('Please enter a search term.');
+                return;
+            }
+
+            var matchingMembers = storedMembers.filter(function (member) {
+                return (member.firstName.toLowerCase().includes(searchTerm) || member.lastName.toLowerCase().includes(searchTerm));
+            });
+
+            if (matchingMembers.length > 0) {
+                displaySearchResults(matchingMembers);
+            } else {
+                alert('No matching members found.');
+            }
+        }
+
+        function displaySearchResults(results) {
+            var memberListContainer = document.getElementById('memberList');
+            memberListContainer.innerHTML = '';
+
+            results.forEach(function (member, index) {
+                var memberItem = document.createElement('div');
+                memberItem.className = 'memberItem';
+                memberItem.textContent = 'Member ' + (index + 1) + ': ' + member.firstName + ' ' + member.lastName;
+                "<br>Gender: " + memberDetails.gender +
+                "<br>Phone Number: " + memberDetails.phoneNumber;
+                memberItem.onclick = function () {
+                    showMemberDetails(index);
+                };
+
+                memberListContainer.appendChild(memberItem);
+            });
+        }
+
+        // Initial update of member list
+        updateMemberList();
+    </script>
+</body>
+</html>
