@@ -80,6 +80,7 @@ img {
   max-width: 30%; /* Ensure images are responsive */
   height: auto;
   border-radius: 50px;
+  margin-top: 50px;
 }
 
 #members {
