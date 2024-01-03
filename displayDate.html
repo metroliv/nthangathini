@@ -76,17 +76,17 @@
 
     <button id="deleteButton" onclick="deleteMember()">Delete Member</button>
 
-    <a href="index.html" style="display_blank">Back to Home</a>
+    <a href="index.html">Back to Home</a>
 
     <script>
         // Retrieve the stored members from local storage
         var storedMembers = JSON.parse(localStorage.getItem('members')) || [];
 
-        function updateMemberList() {
+        function updateMemberList(members) {
             var memberListContainer = document.getElementById('memberList');
             memberListContainer.innerHTML = '';
 
-            storedMembers.forEach(function (member, index) {
+            members.forEach(function (member, index) {
                 var memberItem = document.createElement('div');
                 memberItem.className = 'memberItem';
                 memberItem.textContent = 'Member ' + (index + 1) + ': ' + member.firstName + ' ' + member.lastName;
@@ -113,7 +113,7 @@
                 });
 
                 localStorage.setItem('members', JSON.stringify(storedMembers));
-                updateMemberList();
+                updateMemberList(storedMembers);
                 clearSelection();
             } else {
                 alert('Please select a member to delete.');
@@ -153,32 +153,14 @@
             });
 
             if (matchingMembers.length > 0) {
-                displaySearchResults(matchingMembers);
+                updateMemberList(matchingMembers);
             } else {
                 alert('No matching members found.');
             }
         }
 
-        function displaySearchResults(results) {
-            var memberListContainer = document.getElementById('memberList');
-            memberListContainer.innerHTML = '';
-
-            results.forEach(function (member, index) {
-                var memberItem = document.createElement('div');
-                memberItem.className = 'memberItem';
-                memberItem.textContent = 'Member ' + (index + 1) + ': ' + member.firstName + ' ' + member.lastName;
-                "<br>Gender: " + memberDetails.gender +
-                "<br>Phone Number: " + memberDetails.phoneNumber;
-                memberItem.onclick = function () {
-                    showMemberDetails(index);
-                };
-
-                memberListContainer.appendChild(memberItem);
-            });
-        }
-
         // Initial update of member list
-        updateMemberList();
+        updateMemberList(storedMembers);
     </script>
 </body>
 </html>
