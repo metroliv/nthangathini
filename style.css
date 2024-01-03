@@ -94,6 +94,7 @@ img {
   background-color: springgreen;
   padding: 5px;
   display: block; /* Make it a block element */
+  overflow: hidden;
 }
 
 table {
