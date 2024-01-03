@@ -108,6 +108,13 @@ nav {
   backface-visibility: hidden;
 }
 
+  .span1 {
+    float: none;
+    position: relative;
+    left: auto;
+    width: 100%;
+  }
+
 h1 {
   font-size: 20px; /* Adjusted font size */
   color: lightcyan;
