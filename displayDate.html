@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Details</title>
     <style>
+        /* ... (your existing styles) ... */
         body {
             text-align: center;
             background-color: lightgray;
@@ -68,8 +69,8 @@
 
     <div id="searchContainer">
         <label for="searchInput">Search Member:</label><br>
-        <input type="text" id="searchInput" name="searchInput" placeholder="Enter name" required>
-        <button id="searchButton" onclick="searchMember()">Search</button>
+        <input type="text" id="searchInput" name="searchInput" placeholder="Enter name" oninput="searchMember()" required>
+        <button id="searchButton">Search</button>
     </div>
 
     <div id="memberList"></div>
@@ -144,18 +145,17 @@
             var searchTerm = document.getElementById('searchInput').value.toLowerCase();
             
             if (searchTerm.trim() === '') {
-                alert('Please enter a search term.');
-                return;
-            }
-
-            var matchingMembers = storedMembers.filter(function (member) {
-                return (member.firstName.toLowerCase().includes(searchTerm) || member.lastName.toLowerCase().includes(searchTerm));
-            });
-
-            if (matchingMembers.length > 0) {
-                updateMemberList(matchingMembers);
+                updateMemberList(storedMembers);
             } else {
-                alert('No matching members found.');
+                var matchingMembers = storedMembers.filter(function (member) {
+                    return (member.firstName.toLowerCase().includes(searchTerm) || member.lastName.toLowerCase().includes(searchTerm));
+                });
+
+                if (matchingMembers.length > 0) {
+                    updateMemberList(matchingMembers);
+                } else {
+                    alert('No matching members found.');
+                }
             }
         }
 
