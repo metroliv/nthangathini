@@ -9,15 +9,17 @@
 </head>
 <body>
 <header>
-    <nav>
-        <div id="div1">
-            <big>
-                <a href="#" onclick="showHome()">Home</a>
-                <a href="#" onclick="showEvents()">Events</a>
-                <a href="#" onclick="showMembers()">Members</a>
-           
-    </nav>
-</header>
+        <nav>
+            <div id="div1">
+                <big>
+                    <a href="#" onclick="showHome()">Home</a>
+                    <a href="#" onclick="showEvents()">Events</a>
+                    <a href="#" onclick="showMembers()">Members</a>
+                    <a href="#" onclick="showHelpCenter()">Help Center</a>
+                </big>
+            </div>
+        </nav>
+    </header>
 
 <main>
     <div id="home">
@@ -108,58 +110,76 @@
        <big><a href="displayDate.html" id="allMembersBtn"><img src="members.jpeg"><br></a></big>
           </div>    
        
-      
-        <div id="youth" style="display: none;">
-            <h2>Youth</h2>
-            <button onclick="showAddMemberForm('youth')">Add Member</button>
-            <ul id="memberListYouth"></ul>
-
-            <div id="addMemberFormYouth" style="display: none;">
-                <label for="memberNameYouth">Member Name:</label>
-                <input type="text" id="memberNameYouth">
-                <button onclick="addMember('youth')">Add Member</button>
-            </div>
-        </div>
-
-        <div id="women" style="display: none;">
-            <h2>Women</h2>
-            <button onclick="showAddMemberForm('women')">Add Member</button>
-            <ul id="memberListWomen"></ul>
-
-            <div id="addMemberFormWomen" style="display: none;">
-                <label for="memberNameWomen">Member Name:</label>
-                <input type="text" id="memberNameWomen">
-                <button onclick="addMember('women')">Add Member</button>
-            </div>
-        </div>
-
-        <div id="men" style="display: none;">
-            <h2>Men</h2>
-            <button onclick="showAddMemberForm('men')">Add Member</button>
-            <ul id="memberListMen"></ul>
-
-            <div id="addMemberFormMen" style="display: none;">
-                <label for="memberNameMen">Member Name:</label>
-                <input type="text" id="memberNameMen">
-                <button onclick="addMember('men')">Add Member</button>
-            </div>
-        </div>
-
-        <div id="children" style="display: none;">
-            <h2>Children</h2>
-            <button onclick="showAddMemberForm('children')">Add Member</button>
-            <ul id="memberListChildren"></ul>
-
-            <div id="addMemberFormChildren" style="display: none;">
-                <label for="memberNameChildren">Member Name:</label>
-                <input type="text" id="memberNameChildren">
-                <button onclick="addMember('children')">Add Member</button>
-            </div>
         </div>
     </div>
-</main>
+    <div id="helpCenter" style="display: none;">
+            <h1>Help Center</h1>
 
+            <ul id="helpCenterList">
+                <li>
+                    <h2><a href="#faq">Frequently Asked Questions</a></h2>
+                    <p>Find answers to common questions here.</p>
 
-<script src="nthangathini.js"></script>
+                    <!-- Chat Container for FAQ -->
+                    <div id="faqChat">
+                        <h3>Ask a Question</h3>
+                        <div id="faqChatWindow" style="max-height: 150px; overflow-y: scroll; border: 1px solid #ddd; padding: 10px;"></div>
+                        <form onsubmit="submitFAQQuestion(event)">
+                            <textarea id="faqMessageInput" style="width: 100%; margin-top: 10px;"></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <h2><a href="#contact">Contact Us</a></h2>
+                    <p>If you need assistance, feel free to contact us via email at <a href="mailto:support@example.com">support@example.com</a> or call our helpline at +1-123-456-7890.</p>
+                </li>
+                <!-- Add more help topics as needed -->
+            </ul>
+
+            <div id="faq" style="display: none;">
+                <h2>Frequently Asked Questions</h2>
+                <ul>
+                    <li>
+                        <h3>How do I create an account?</h3>
+                        <p>Follow these steps to create an account...</p>
+                    </li>
+                    <li>
+                        <h3>How can I reset my password?</h3>
+                        <p>If you forgot your password, you can reset it by...</p>
+                    </li>
+                    <!-- Add more FAQ items as needed -->
+                </ul>
+            </div>
+        </div>
+        </main>
+        <footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: info@example.com</p>
+            <p>Phone: +1-123-456-7890</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <p><a href="#">Facebook</a></p>
+            <p><a href="#">Twitter</a></p>
+            <p><a href="#">Instagram</a></p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <p><a href="#">Home</a></p>
+            <p><a href="#">Events</a></p>
+            <p><a href="#">Members</a></p>
+            <p><a href="#">Help Center</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Your Church App. All rights reserved.</p>
+    </div>
+</footer>    
+
+    <script src="nthangathini.js"></script>
+    
 </body>
 </html>
