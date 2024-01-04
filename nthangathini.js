@@ -185,4 +185,75 @@ function submitFAQQuestion(event) {
     }
 }
 
-// Add more functions as needed
+f// JavaScript code to toggle the visibility of the Leaders section
+
+function showLeaders() {
+    var leadersSection = document.getElementById("leaders");
+
+    // Toggle the display property
+    if (leadersSection.style.display === "none" || leadersSection.style.display === "") {
+        leadersSection.style.display = "block";
+    } else {
+        leadersSection.style.display = "none";
+    }
+}
+
+// Add the event listener to the "Leaders" button
+document.querySelector('[onclick="showLeaders()"]').addEventListener("click", showLeaders);
+
+// JavaScript code to toggle the visibility of the Add Leaders form
+
+function showAddLeaderForm() {
+    var addLeaderForm = document.getElementById("addLeaderForm");
+
+    // Toggle the display property
+    if (addLeaderForm.style.display === "none" || addLeaderForm.style.display === "") {
+        addLeaderForm.style.display = "block";
+    } else {
+        addLeaderForm.style.display = "none";
+    }
+}
+
+// Add the event listener to the "Add Leader" button
+document.querySelector('[onclick="showAddLeaderForm()"]').addEventListener("click", showAddLeaderForm);
+
+
+    function addLeader(event) {
+        event.preventDefault();
+        var leaderName = document.getElementById('leaderName').value;
+        var leaderRole = document.getElementById('leaderRole').value;
+        var leaderImage = document.getElementById('leaderImage').value;
+
+        // Create a new leader div
+        var leaderDiv = document.createElement('div');
+        leaderDiv.className = 'leader';
+
+        // Create image element
+        var imgElement = document.createElement('img');
+        imgElement.src = leaderImage;
+        imgElement.alt = leaderName;
+
+        // Create name and role elements
+        var h2Element = document.createElement('h2');
+        h2Element.textContent = leaderName;
+
+        var pElement = document.createElement('p');
+        pElement.textContent = leaderRole;
+
+        // Append elements to the leader div
+        leaderDiv.appendChild(imgElement);
+        leaderDiv.appendChild(h2Element);
+        leaderDiv.appendChild(pElement);
+
+        // Append the new leader div to the leaders section
+        var leadersSection = document.getElementById('leaders');
+        if (leadersSection) {
+            leadersSection.appendChild(leaderDiv);
+        }
+
+        // Hide the add leader form
+        var addLeaderForm = document.getElementById('addLeaderForm');
+        if (addLeaderForm) {
+            addLeaderForm.style.display = 'none';
+        }
+    }
