@@ -151,26 +151,27 @@ ul h1 {
 footer {
     background-color: #1a1a1a;
     color: #fff;
-    padding: 20px 0;
-    margin-top: 200px; /* Add space between main content and footer */
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    margin-top: 20px;
 }
 
 .footer-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .footer-section {
-    flex: 1 1 300px;
-    margin: 0 20px;
+    flex: 1 1 100%; /* Full width on small screens */
+    margin: 0 10px;
+    text-align: center;
 }
 
 .footer-section h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .footer-section p {
@@ -184,18 +185,16 @@ footer {
 
 .footer-bottom {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* Responsive Footer */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .footer-container {
-        flex-direction: column;
-        align-items: center;
+        justify-content: space-around;
     }
 
     .footer-section {
-        margin-bottom: 20px;
-        text-align: center; /* Center text in smaller screens */
+        flex: 1 1 30%; /* Adjust as needed for your design */
     }
 }
