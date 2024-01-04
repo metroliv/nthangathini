@@ -106,96 +106,83 @@ function addEvent(){
 
 function updateEventList() {  
     
-    // for(let i = 0;i <= events.length; i++){
-       
-
-    // document.getElementById('eventtitle').innerHTML = events.Title[i]
-    // document.getElementById('eventdate').innerHTML  = events.Date[i]
-    // document.getElementById('Eventdescription').innerHTML = events.Comment[i]
-      
-       
-    // }
+    
     
 }
 
-
-function showYouth() {
-    hideMembershipSubSections();
-    document.getElementById("youth").style.display = "block";
-}
-
-
-function showWomen() {
-    hideMembershipSubSections();
-    document.getElementById("women").style.display = "block";
-}
-
-
-function showMen() {
-    hideMembershipSubSections();
-    document.getElementById("men").style.display = "block";
-}
-
-
-function showChildren() {
-    hideMembershipSubSections();
-    document.getElementById("children").style.display = "block";
-}
-
-
-function hideMembershipSubSections() {
-    document.getElementById("youth").style.display = "none";
-    document.getElementById("women").style.display = "none";
-    document.getElementById("men").style.display = "none";
-    document.getElementById("children").style.display = "none";
-    // Add any additional subsections here
-}
-
-// Function to show the membership section
-function showMembership() {
-    hideMembershipSubSections();
-    document.getElementById("membership").style.display = "block";
-}
-
-// Function to show the add member form
-function showAddMemberForm() {
-    hideMembershipSubSections();
-    document.getElementById("addMemberForm").style.display = "block";
-}
-
-// Function to add a member
-function addMember() {
-    const memberName = document.getElementById("memberName").value.trim();
-
-    if (memberName !== "") {
-        members.push(memberName);
-        updateMemberList();
-        document.getElementById("memberName").value = "";
+function showSection(sectionId) {
+    hideAllSections();
+    var section = document.getElementById(sectionId);
+    if (section) {
+        section.style.display = 'block';
     }
 }
 
-// Function to remove a member
-function removeMember(index) {
-    members.splice(index, 1);
-    updateMemberList();
+function hideAllSections() {
+    var sections = document.querySelectorAll('main > div');
+    sections.forEach(function(section) {
+        section.style.display = 'none';
+    });
 }
 
-// Function to update the member list
-function updateMemberList() {
-    const memberListElement = document.getElementById("memberList");
-    memberListElement.innerHTML = "";
+function submitFAQQuestion(event) {
+    hideAllSections();
+    event.preventDefault();
+    var faqMessageInput = document.getElementById('faqMessageInput');
+    var faqChatWindow = document.getElementById('faqChatWindow');
 
-    for (let i = 0; i < members.length; i++) {
-        const listItem = document.createElement("li");
-        listItem.textContent = members[i];
-
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove";
-        removeButton.onclick = function () {
-            removeMember(i);
-        };
-
-        listItem.appendChild(removeButton);
-        memberListElement.appendChild(listItem);
+    var question = faqMessageInput.value.trim();
+    if (question !== '') {
+        // Add the user's question to the chat window
+        faqChatWindow.innerHTML += '<p><strong>You:</strong> ' + question + '</p>';
+        // You can add logic here to handle the question or integrate with a backend for processing.
+        faqMessageInput.value = ''; // Clear the input field
     }
 }
+
+function addEvent() {
+    const title = document.getElementById('title').value;
+    const date = document.getElementById('date').value;
+    const approved = document.getElementById('chackbox').checked;
+    const description = document.getElementById('comment').value;
+
+    fetch('/api/events', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, date, approved, description }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
+function sendMessage(event) {
+    // Add logic to handle sending messages in the chat
+    event.preventDefault();
+}
+
+function showHelpCenter() {
+    hideAllSections();
+    var helpCenter = document.getElementById('helpCenter');
+    if (helpCenter) {
+        helpCenter.style.display = 'block';
+    }
+}
+
+function submitFAQQuestion(event) {
+    event.preventDefault();
+    var faqMessageInput = document.getElementById('faqMessageInput');
+    var faqChatWindow = document.getElementById('faqChatWindow');
+
+    var question = faqMessageInput.value.trim();
+    if (question !== '') {
+        // Add the user's question to the chat window
+        faqChatWindow.innerHTML += '<p><strong>You:</strong> ' + question + '</p>';
+        // You can add logic here to handle the question or integrate with a backend for processing.
+        faqMessageInput.value = ''; // Clear the input field
+    }
+}
+
+// Add more functions as needed
