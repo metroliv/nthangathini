@@ -1,141 +1,201 @@
-body {
-  dominant-baseline: all;
-  background-color: rgb(7, 224, 224);
-  background-image: url(bible1.jpeg), url(bible2.jpeg), url(bible3.jpeg);
-  background-image: rgb(47, 238, 238), yellow;
-  background-position: right bottom, left top;
-  background-repeat: no-repeat, repeat;
-  padding: 15px;
+/* Reset some default styles */
+body, h1, h2, ul, li, p, button {
+    margin: 0;
+    padding: 0;
 }
 
-.memberList {
-  margin: auto;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
 }
 
 header {
-  background-color: cyan;
-  font-size: 20px;
-  color: blue;
-  text-align: center; /* Center text */
-}
-
-footer {
-  background-color: cyan;
-  color: blue;
-  font-size: 20px; /* Adjusted font size */
-  padding: 15px;
-  text-align: center; /* Center text */
-}
-
-table {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* Adjusted box-shadow */
-  background-color: whitesmoke;
-  border-collapse: collapse; /* Collapsed borders for better styling */
-  width: 100%; /* Full width for responsiveness */
-}
-
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px; /* Adjusted padding */
-  border: none;
-  border-radius: 10px; /* Smaller border radius */
-  font-size: 18px; /* Adjusted font size */
-  cursor: pointer;
-  display: block; /* Make button a block element */
-  margin: 10px auto; /* Center the button */
-}
-
-.link {
-  float: right;
-  padding: 4px;
-  background-attachment: 20px;
-  color: green;
-}
-
-.box {
-  width: 100%;
-  max-width: 300px;
-  padding: 20px;
-  border: 10px solid #ccc;
-  margin: 0 auto;
-  background-color: #f1f4f0;
-}
-
-#game-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 7px auto;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  overflow: hidden;
-}
-
-#message-form-inner {
-  text-align: center; /* Center text */
-}
-
-img {
-  max-width: 30%; /* Ensure images are responsive */
-  height: auto;
-  border-radius: 50px;
-  margin-top: 50px;
-}
-
-#members {
-  text-align: center; /* Center text */
-}
-
-#div1 {
-  position: relative; /* Relative positioning */
-  width: 100%;
-  border: 2px solid black;
-  background-color: springgreen;
-  padding: 5px;
-  display: block; /* Make it a block element */
-  overflow: hidden;
-}
-
-table {
-  border: 2px solid; /* Adjusted border */
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
 }
 
 nav {
-  background-color: lightcyan;
-  color: black;
-  padding: 10px;
-  border: 10px solid transparent; /* Adjusted border */
-  backface-visibility: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
 }
 
-  .span1 {
-    float: none;
-    position: relative;
-    left: auto;
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    font-size: 16px;
+}
+
+main {
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #4CAF50;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#home {
+    text-align: center;
+}
+
+#home button {
+    margin-top: 20px;
+}
+
+#events, #addEventForm, #uploadForm, #chat, #viewEvent, #helpCenter {
+    margin-top: 20px;
+}
+
+#addEventForm, #uploadForm, #chat, #viewEvent, #helpCenter {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#fileInput {
+    margin-top: 10px;
+}
+
+#chatWindow {
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#viewEvent a, #helpCenter a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+#eventList, #helpCenterList {
     width: 100%;
-  }
-
-h1 {
-  font-size: 20px; /* Adjusted font size */
-  color: lightcyan;
-  text-align: center;
-  margin-top: 20px;
+    border-collapse: collapse;
 }
 
-/* Media query for smaller screens */
-@media screen and (max-width: 600px) {
-  header,
-  footer {
-    font-size: 18px; /* Adjusted font size */
-  }
+#eventList td, #helpCenterList li {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
 
-  table {
-    box-shadow: none; /* Remove box-shadow for smaller screens */
-  }
+#members, #helpCenter {
+    margin-top: 20px;
+}
 
-  button {
-    font-size: 16px; /* Adjusted font size */
-  }
+ul {
+    list-style: none;
+}
+
+ul h1 {
+    margin-bottom: 10px;
+}
+
+#game-container {
+    text-align: center;
+}
+
+#game-container a {
+    text-decoration: none;
+    color: #333;
+}
+
+#allMembersBtn img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 5px;
+}
+
+#youth, #women, #men, #children {
+    margin-top: 20px;
+}
+
+#addMemberFormYouth, #addMemberFormWomen, #addMemberFormMen, #addMemberFormChildren {
+    margin-top: 10px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    #addEventForm, #uploadForm, #chat, #viewEvent, #helpCenter {
+        padding: 15px;
+    }
+}
+/* Footer Styles */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 200px; /* Add space between main content and footer */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 300px;
+    margin: 0 20px;
+}
+
+.footer-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+        text-align: center; /* Center text in smaller screens */
+    }
 }
