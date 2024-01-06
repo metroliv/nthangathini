@@ -296,8 +296,13 @@ footer {
 #addLeaderForm button:hover {
     background-color: #0056b3;
 }
-img{
-    height: 10px;
-    width: 10px;
-}
+.call-image {
+            width: 30px; 
+            height: 30; 
+            border: 0px solid green; 
+            border-radius: 50px; 
+            margin: 10px;
+            margin-top: 11px;
+            margin-bottom: 0px;
+        }
 
